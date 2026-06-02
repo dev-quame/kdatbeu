@@ -17,10 +17,10 @@ export function Shows() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="mb-10"
+        className="surface noise-field mb-10 p-7 sm:p-10"
       >
         <p className="eyebrow mb-4">Shows</p>
-        <h1 className="display text-5xl text-white sm:text-7xl">Built for live rooms.</h1>
+        <h1 className="display max-w-4xl text-5xl text-white sm:text-7xl">Built for live rooms.</h1>
         <p className="mt-5 max-w-2xl text-sm leading-7 text-white/55 sm:text-base">
           Close rooms, campus pull-ups, and festival pace when the dates open up.
         </p>
@@ -31,7 +31,7 @@ export function Shows() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.12 }}
-          className="border border-white/12 bg-[#10100f] p-7 sm:p-9"
+          className="surface p-7 sm:p-9"
         >
           <div className="flex h-12 w-12 items-center justify-center border border-white/12 bg-white/[0.05] text-white/80">
             <CalendarRange className="h-5 w-5" />
@@ -60,7 +60,7 @@ export function Shows() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.18 + index * 0.08 }}
-              className="border border-white/12 bg-[#10100f] p-6"
+              className="surface p-6"
             >
               <div className="flex h-11 w-11 items-center justify-center border border-white/12 bg-white/[0.05] text-white/80">
                 <Mic2 className="h-5 w-5" />
@@ -79,7 +79,7 @@ export function Shows() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="border border-white/12 bg-[#10100f] p-7 sm:p-8"
+          className="surface p-7 sm:p-8"
         >
           <div className="flex h-12 w-12 items-center justify-center border border-white/12 bg-white/[0.05] text-white/80">
             <Ticket className="h-5 w-5" />
@@ -96,7 +96,7 @@ export function Shows() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.08 }}
-          className="border border-white/12 bg-[#10100f] p-7 sm:p-8"
+          className="surface p-7 sm:p-8"
         >
           <div className="flex h-12 w-12 items-center justify-center border border-white/12 bg-white/[0.05] text-white/80">
             <Map className="h-5 w-5" />

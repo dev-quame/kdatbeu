@@ -1,5 +1,16 @@
 import { motion } from "motion/react";
-import { ArrowRight, ArrowUpRight, AudioLines, Clapperboard, Newspaper, Play, Ticket } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  AudioLines,
+  Clapperboard,
+  Mic2,
+  Newspaper,
+  Play,
+  RadioTower,
+  Sparkles,
+  Ticket,
+} from "lucide-react";
 import { SmartLink } from "../SmartLink";
 import {
   artistProfile,
@@ -13,26 +24,38 @@ import {
 
 export function Home() {
   const sectionLinks = [
-    { label: "Sound", icon: AudioLines, href: "/music" },
-    { label: "Visuals", icon: Clapperboard, href: "/visuals" },
-    { label: "Shows", icon: Ticket, href: "/shows" },
-    { label: "Journal", icon: Newspaper, href: "/journal" },
+    { label: "Sound", icon: AudioLines, href: "/music", accent: "text-primary" },
+    { label: "Visuals", icon: Clapperboard, href: "/visuals", accent: "text-electric" },
+    { label: "Shows", icon: Ticket, href: "/shows", accent: "text-heat" },
+    { label: "Journal", icon: Newspaper, href: "/journal", accent: "text-violet" },
+  ];
+
+  const heroStats = [
+    { label: "Origin", value: artistProfile.origin },
+    { label: "Release", value: artistProfile.featuredRelease },
+    { label: "Year", value: artistProfile.featuredYear },
   ];
 
   return (
     <div className="pb-20">
-      <section className="section-shell pb-16 pt-8 sm:pb-20 sm:pt-14">
-        <div className="grid gap-12 xl:grid-cols-[1.08fr_0.92fr] xl:items-end">
+      <section className="noise-field relative overflow-hidden pb-16 pt-4 sm:pb-20 sm:pt-10">
+        <div className="section-shell">
+          <div className="grid gap-12 xl:grid-cols-[0.98fr_1.02fr] xl:items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <p className="eyebrow mb-6">{artistProfile.origin} / {artistProfile.label}</p>
-            <h1 className="display max-w-[9ch] text-[clamp(4.25rem,13vw,10rem)] font-semibold leading-[0.9] text-white">
+            <div className="mb-6 flex flex-wrap items-center gap-3">
+              <p className="eyebrow">{artistProfile.origin} / {artistProfile.label}</p>
+              <span className="border border-white/12 bg-white/[0.04] px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/62">
+                {artistProfile.roles.join(" / ")}
+              </span>
+            </div>
+            <h1 className="display max-w-[8.5ch] text-[clamp(4.5rem,12vw,10.5rem)] font-semibold leading-[0.86] text-white">
               {artistProfile.name}
             </h1>
-            <p className="mt-7 max-w-2xl text-xl leading-8 text-white/80 sm:text-2xl sm:leading-9">
+            <p className="mt-7 max-w-2xl text-2xl leading-9 text-white/86 sm:text-3xl sm:leading-10">
               {artistProfile.heroLine}
             </p>
             <p className="mt-5 max-w-2xl text-sm leading-7 text-white/58 sm:text-base">
@@ -42,18 +65,30 @@ export function Home() {
             <div className="mt-9 flex flex-wrap gap-3">
               <SmartLink
                 href={socialLinks[0].href}
-                className="inline-flex items-center gap-2 border border-primary bg-primary px-6 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-black transition hover:bg-white"
+                className="inline-flex min-h-12 items-center gap-2 border border-primary bg-primary px-6 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-black transition hover:bg-white"
               >
+                <Play className="h-4 w-4" />
                 Watch on YouTube
                 <ArrowUpRight className="h-4 w-4" />
               </SmartLink>
               <SmartLink
                 href="#sound"
-                className="inline-flex items-center gap-2 border border-white/16 px-6 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-white/82 transition hover:border-primary hover:text-white"
+                className="inline-flex min-h-12 items-center gap-2 border border-white/16 bg-white/[0.035] px-6 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-white/82 transition hover:border-primary hover:text-white"
               >
                 Enter the sound
                 <ArrowRight className="h-4 w-4" />
               </SmartLink>
+            </div>
+
+            <div className="mt-10 grid max-w-2xl grid-cols-3 gap-px overflow-hidden border border-white/10 bg-white/10">
+              {heroStats.map((stat) => (
+                <div key={stat.label} className="bg-[#060606]/82 p-4">
+                  <p className="text-[0.66rem] font-semibold uppercase tracking-[0.22em] text-white/36">
+                    {stat.label}
+                  </p>
+                  <p className="mt-2 text-sm font-semibold text-white sm:text-base">{stat.value}</p>
+                </div>
+              ))}
             </div>
           </motion.div>
 
@@ -61,24 +96,60 @@ export function Home() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.15 }}
-            className="border-y border-white/14 py-8 xl:py-10"
+            className="relative"
           >
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                <p className="eyebrow mb-3">Current release</p>
-                <h2 className="display text-6xl font-semibold leading-none text-white sm:text-8xl">
-                  {artistProfile.featuredRelease}
-                </h2>
+            <div className="poster-frame min-h-[31rem] border border-white/14 bg-[#10100f] p-6 sm:min-h-[38rem] sm:p-8">
+              <div className="scanlines absolute inset-0 opacity-25" />
+              <div className="relative flex h-full min-h-[27rem] flex-col justify-between sm:min-h-[34rem]">
+                <div className="flex items-start justify-between gap-5">
+                  <div>
+                    <p className="eyebrow mb-3 text-black/70">Current release</p>
+                    <h2 className="display max-w-[8ch] text-6xl font-semibold leading-[0.86] text-black sm:text-8xl">
+                      {artistProfile.featuredRelease}
+                    </h2>
+                  </div>
+                  <span className="border border-black/20 bg-black px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+                    {artistProfile.featuredYear}
+                  </span>
+                </div>
+
+                <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+                  <div className="flex h-32 items-end gap-2 border border-black/15 bg-black/14 p-4">
+                    {Array.from({ length: 18 }).map((_, index) => (
+                      <span
+                        key={index}
+                        className="equalizer-bar block flex-1 bg-black/70"
+                        style={{
+                          height: `${28 + ((index * 17) % 74)}%`,
+                          animationDelay: `${index * 0.08}s`,
+                        }}
+                      />
+                    ))}
+                  </div>
+                  <div className="border border-black/15 bg-black/72 p-5 text-white">
+                    <div className="mb-5 flex items-center gap-3">
+                      <span className="flex h-10 w-10 items-center justify-center border border-primary/35 bg-primary text-black">
+                        <Mic2 className="h-5 w-5" />
+                      </span>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+                          New wave
+                        </p>
+                        <p className="mt-1 text-sm text-white/58">Grit / Melody / Motion</p>
+                      </div>
+                    </div>
+                    <p className="text-sm leading-7 text-white/68">
+                      A visual-first entry point for the track, the clips, and the next rollout.
+                    </p>
+                  </div>
+                </div>
               </div>
-              <span className="border border-primary px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-                {artistProfile.featuredYear}
-              </span>
             </div>
 
-            <div className="mt-12 grid gap-4 sm:grid-cols-2">
+            <div className="mt-5 grid gap-4 sm:grid-cols-2">
               <SmartLink
                 href={socialLinks[0].href}
-                className="group border border-white/12 bg-[#10100f] p-5 transition hover:border-primary"
+                className="group surface p-5 transition hover:border-primary"
               >
                 <p className="eyebrow mb-3">Visual drop</p>
                 <p className="text-lg font-semibold text-white">Official channel</p>
@@ -86,7 +157,7 @@ export function Home() {
               </SmartLink>
               <SmartLink
                 href={socialLinks[1].href}
-                className="group border border-white/12 bg-[#10100f] p-5 transition hover:border-primary"
+                className="group surface p-5 transition hover:border-electric"
               >
                 <p className="eyebrow mb-3">Fast lane</p>
                 <p className="text-lg font-semibold text-white">Freestyle clips</p>
@@ -94,6 +165,7 @@ export function Home() {
               </SmartLink>
             </div>
           </motion.div>
+          </div>
         </div>
       </section>
 
@@ -115,7 +187,7 @@ export function Home() {
                 className="group bg-[#060606] p-5 transition hover:bg-[#10100f]"
               >
                 <div className="flex items-center justify-between gap-4">
-                  <Icon className="h-5 w-5 text-primary" />
+                  <Icon className={`h-5 w-5 ${item.accent}`} />
                   <span className="text-xs uppercase tracking-[0.28em] text-white/35">
                     0{index + 1}
                   </span>
@@ -131,12 +203,31 @@ export function Home() {
       </section>
 
       <section id="sound" className="section-shell py-14 sm:py-18">
-        <div className="mb-10">
-          <p className="eyebrow mb-3">Sound</p>
-          <h2 className="display text-4xl font-semibold text-white sm:text-6xl">Start with the records.</h2>
-          <p className="mt-4 max-w-2xl text-sm leading-7 text-white/55 sm:text-base">
-            A clear first route into the music, freestyles, and next release.
-          </p>
+        <div className="mb-10 grid gap-6 lg:grid-cols-[0.72fr_0.28fr] lg:items-end">
+          <div>
+            <p className="eyebrow mb-3">Sound</p>
+            <h2 className="display text-4xl font-semibold text-white sm:text-6xl">Start with the records.</h2>
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-white/55 sm:text-base">
+              A clear first route into the music, freestyles, and next release.
+            </p>
+          </div>
+          <div className="hidden border border-white/10 bg-white/[0.035] p-5 lg:block">
+            <RadioTower className="h-5 w-5 text-electric" />
+            <p className="mt-4 text-sm leading-6 text-white/58">
+              Built as a quick scan: hit play, catch the clips, then follow the rollout.
+            </p>
+          </div>
+        </div>
+
+        <div className="mb-5 grid gap-3 md:grid-cols-3">
+          {artistProfile.roles.map((role, index) => (
+            <div key={role} className="border border-white/10 bg-[#10100f] px-5 py-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/36">
+                0{index + 1}
+              </p>
+              <p className="mt-2 text-lg font-semibold text-white">{role}</p>
+            </div>
+          ))}
         </div>
 
         <div className="grid gap-5 lg:grid-cols-3">
@@ -150,18 +241,53 @@ export function Home() {
             >
               <SmartLink
                 href={item.href}
-                className={`group block h-full border border-white/12 bg-gradient-to-br ${item.tone} p-7 transition hover:border-primary`}
+                className={`group poster-frame block h-full min-h-[20rem] border border-white/12 bg-gradient-to-br ${item.tone} p-7 transition hover:border-primary`}
               >
-                <p className="eyebrow mb-5">{item.eyebrow}</p>
-                <h3 className="display text-3xl font-semibold text-white sm:text-4xl">{item.title}</h3>
-                <p className="mt-4 max-w-sm text-sm leading-7 text-white/58">{item.note}</p>
-                <div className="mt-10 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-white/82 transition group-hover:text-primary">
-                  {item.action}
-                  <ArrowRight className="h-4 w-4" />
+                <div className="relative flex h-full min-h-[16rem] flex-col justify-between">
+                  <div>
+                    <p className="eyebrow mb-5">{item.eyebrow}</p>
+                    <h3 className="display text-3xl font-semibold text-white sm:text-4xl">{item.title}</h3>
+                    <p className="mt-4 max-w-sm text-sm leading-7 text-white/64">{item.note}</p>
+                  </div>
+                  <div className="mt-10 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-white/82 transition group-hover:text-primary">
+                    {item.action}
+                    <ArrowRight className="h-4 w-4" />
+                  </div>
                 </div>
               </SmartLink>
             </motion.div>
           ))}
+        </div>
+      </section>
+
+      <section className="section-shell border-t border-white/10 py-14 sm:py-18">
+        <div className="surface grid gap-0 overflow-hidden lg:grid-cols-[0.72fr_0.28fr]">
+          <div className="noise-field p-7 sm:p-10">
+            <p className="eyebrow mb-4">Momentum</p>
+            <h2 className="display max-w-4xl text-4xl font-semibold text-white sm:text-6xl">
+              A sharper world for every drop, clip, and show announcement.
+            </h2>
+            <p className="mt-5 max-w-2xl text-sm leading-7 text-white/58 sm:text-base">
+              The design now gives the music a visual system: cover energy, quick social routes, and sections that feel connected.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-px bg-white/10 lg:grid-cols-1">
+            {[
+              { label: "Visual identity", icon: Sparkles, color: "text-primary" },
+              { label: "Live-ready pages", icon: Ticket, color: "text-heat" },
+            ].map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <div key={item.label} className="bg-[#060606] p-6">
+                  <Icon className={`h-6 w-6 ${item.color}`} />
+                  <p className="mt-5 text-sm font-semibold uppercase tracking-[0.18em] text-white/72">
+                    {item.label}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 

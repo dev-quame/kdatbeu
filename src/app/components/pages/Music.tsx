@@ -31,10 +31,10 @@ export function Music() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="mb-10"
+        className="surface noise-field mb-10 p-7 sm:p-10"
       >
         <p className="eyebrow mb-4">Sound</p>
-        <h1 className="display text-5xl text-white sm:text-7xl">
+        <h1 className="display max-w-4xl text-5xl text-white sm:text-7xl">
           The music leads everything.
         </h1>
         <p className="mt-5 max-w-2xl text-sm leading-7 text-white/55 sm:text-base">
@@ -46,7 +46,7 @@ export function Music() {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className="border border-white/12 bg-[#10100f] relative mb-14 overflow-hidden p-7 sm:p-10"
+        className="surface poster-frame relative mb-14 overflow-hidden p-7 sm:p-10"
       >
         <div className="absolute inset-0 bg-[linear-gradient(160deg,rgba(227,223,79,0.14),rgba(16,16,15,0.2)_42%,rgba(0,0,0,0.22))]" />
         <div className="relative grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
@@ -97,7 +97,7 @@ export function Music() {
           >
             <SmartLink
               href={item.href}
-              className="border border-white/12 bg-[#10100f] group relative block overflow-hidden p-6"
+              className="surface group relative block overflow-hidden p-6 transition hover:border-primary"
             >
               <div className={`absolute inset-0 bg-gradient-to-br ${item.tone} opacity-90`} />
               <div className="relative">
@@ -128,7 +128,7 @@ export function Music() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.06 }}
-              className="border border-white/12 bg-[#10100f] p-6"
+              className="surface p-6"
             >
               <div className="flex h-11 w-11 items-center justify-center border border-white/12 bg-white/[0.05] text-white/80">
                 <AudioLines className="h-5 w-5" />
@@ -158,7 +158,7 @@ export function Music() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="border border-white/12 bg-[#10100f] p-6"
+                className="surface p-6"
               >
                 <div className="flex h-12 w-12 items-center justify-center border border-white/12 bg-white/[0.05] text-white/80">
                   <Icon className="h-5 w-5" />

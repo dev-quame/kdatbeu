@@ -12,10 +12,10 @@ export function Journal() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="mb-10"
+        className="surface noise-field mb-10 p-7 sm:p-10"
       >
         <p className="eyebrow mb-4">Journal</p>
-        <h1 className="display text-5xl text-white sm:text-7xl">Less essays. More moments.</h1>
+        <h1 className="display max-w-4xl text-5xl text-white sm:text-7xl">Less essays. More moments.</h1>
         <p className="mt-5 max-w-2xl text-sm leading-7 text-white/55 sm:text-base">
           Short notes from the road, the studio, and the shows. Just enough context to bring people closer.
         </p>
@@ -25,7 +25,7 @@ export function Journal() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.12 }}
-        className="border border-white/12 bg-[#10100f] mb-14 overflow-hidden"
+        className="surface mb-14 overflow-hidden"
       >
         <div className="grid gap-0 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="min-h-[280px] bg-[#10100f] p-8 sm:p-10">
@@ -58,7 +58,7 @@ export function Journal() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.08 }}
-            className="border border-white/12 bg-[#10100f] p-6"
+            className="surface p-6"
           >
             <p className="eyebrow mb-4">{post.eyebrow}</p>
             <h3 className="text-2xl font-semibold text-white">{post.title}</h3>
@@ -94,7 +94,7 @@ export function Journal() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="border border-white/12 bg-[#10100f] p-6"
+              className="surface p-6"
             >
               <div className="flex h-12 w-12 items-center justify-center border border-white/12 bg-white/[0.05] text-white/80">
                 <Icon className="h-5 w-5" />

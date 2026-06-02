@@ -34,10 +34,10 @@ export function Visuals() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="mb-10"
+        className="surface noise-field mb-10 p-7 sm:p-10"
       >
         <p className="eyebrow mb-4">Visuals</p>
-        <h1 className="display text-5xl text-white sm:text-7xl">The image has to hit too.</h1>
+        <h1 className="display max-w-4xl text-5xl text-white sm:text-7xl">The image has to hit too.</h1>
         <p className="mt-5 max-w-2xl text-sm leading-7 text-white/55 sm:text-base">
           Cover art, photo drops, behind-the-scenes motion, and the short videos that keep fans close.
         </p>
@@ -53,7 +53,7 @@ export function Visuals() {
             transition={{ duration: 0.5, delay: index * 0.08 }}
             className={card.className}
           >
-            <div className={`border border-white/12 bg-[#10100f] h-full bg-gradient-to-br ${card.tone} p-7 sm:p-8`}>
+            <div className={`poster-frame h-full border border-white/12 bg-[#10100f] bg-gradient-to-br ${card.tone} p-7 sm:p-8`}>
               <p className="eyebrow mb-5">{card.eyebrow}</p>
               <h2 className="display text-4xl text-white sm:text-5xl">{card.title}</h2>
               <p className="mt-4 max-w-sm text-sm leading-7 text-white/55">{card.note}</p>
@@ -76,7 +76,7 @@ export function Visuals() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="border border-white/12 bg-[#10100f] p-6"
+              className="surface p-6"
             >
               <div className="flex h-12 w-12 items-center justify-center border border-white/12 bg-white/[0.05] text-white/80">
                 <Camera className="h-5 w-5" />
@@ -95,7 +95,7 @@ export function Visuals() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="border border-white/12 bg-[#10100f] p-7 sm:p-8"
+          className="surface p-7 sm:p-8"
         >
           <div className="flex h-12 w-12 items-center justify-center border border-white/12 bg-white/[0.05] text-white/80">
             <Clapperboard className="h-5 w-5" />
@@ -119,7 +119,7 @@ export function Visuals() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.08 }}
-          className="border border-white/12 bg-[#10100f] p-7 sm:p-8"
+          className="surface p-7 sm:p-8"
         >
           <div className="flex h-12 w-12 items-center justify-center border border-white/12 bg-white/[0.05] text-white/80">
             <Video className="h-5 w-5" />
@@ -166,7 +166,7 @@ export function Visuals() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="border border-white/12 bg-[#10100f] p-6"
+              className="surface p-6"
             >
               <div className="flex h-12 w-12 items-center justify-center border border-white/12 bg-white/[0.05] text-white/80">
                 <Icon className="h-5 w-5" />
