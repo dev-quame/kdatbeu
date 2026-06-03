@@ -1,6 +1,6 @@
 # Jay Ricch Artist Portfolio
 
-A Vite + React artist portfolio for Jay Ricch, built around music, visuals, shows, and short journal updates.
+Jay Ricch, built around music, visuals, shows, and short journal updates.
 
 ## Tech Stack
 
